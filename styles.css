@@ -118,7 +118,7 @@ p{ margin:0 0 1em; text-wrap:pretty; color:var(--ink-2); }
 
 /* ---------- top utility bar ---------- */
 .topbar{
-  background:var(--dark); color:oklch(0.86 0.01 255);
+  background:#1a2c48; color:oklch(0.86 0.01 255);
   font-size:.86rem; font-weight:450;
 }
 .topbar .wrap{ display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:42px; }
