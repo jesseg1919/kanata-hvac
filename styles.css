@@ -139,8 +139,7 @@ p{ margin:0 0 1em; text-wrap:pretty; color:var(--ink-2); }
 .nav.scrolled{ border-color:var(--line); box-shadow:0 6px 24px oklch(0.2 0.03 255 / .07); }
 .nav .wrap{ display:flex; align-items:center; gap:1.5rem; min-height:78px; }
 .brand{ display:flex; align-items:center; gap:.7rem; margin-right:auto; }
-.brand img.mark{ height:46px; width:auto; }
-.brand img.word{ height:23px; width:auto; }
+.brand img.brand-logo{ height:50px; width:auto; max-width:min(64vw,300px); object-fit:contain; }
 .nav-links{ display:flex; align-items:center; gap:.35rem; }
 .nav-links a{
   font-family:var(--font-head); font-weight:600; font-size:1rem;
