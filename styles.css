@@ -203,6 +203,17 @@ p{ margin:0 0 1em; text-wrap:pretty; color:var(--ink-2); }
 }
 .chip svg{ width:16px; height:16px; color:var(--blue); }
 
+/* ---------- service-area chips (shared) ---------- */
+.area-chip{
+  display:inline-flex; align-items:center; gap:.5em; padding:.7em 1.15em; border-radius:13px;
+  background:#fff; border:1px solid var(--line); font-family:var(--font-head); font-weight:600; font-size:1.02rem; color:var(--ink);
+  box-shadow:var(--shadow-sm); transition:transform .18s var(--ease), border-color .18s;
+}
+.area-chip:hover{ transform:translateY(-3px); border-color:var(--blue); }
+.area-chip svg{ width:18px; height:18px; color:var(--orange-deep); }
+.area-chip--home{ background:var(--blue); color:#fff; border-color:var(--blue); }
+.area-chip--home svg{ color:#fff; }
+
 /* ---------- footer ---------- */
 .footer{ background:var(--dark); color:oklch(0.82 0.012 255); padding-block:clamp(56px,7vw,84px) 28px; }
 .footer a{ color:oklch(0.82 0.012 255); transition:color .15s; }
