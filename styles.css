@@ -214,6 +214,21 @@ p{ margin:0 0 1em; text-wrap:pretty; color:var(--ink-2); }
 .area-chip--home{ background:var(--blue); color:#fff; border-color:var(--blue); }
 .area-chip--home svg{ color:#fff; }
 
+/* ---------- closing CTA band (shared) ---------- */
+.cta-band{ position:relative; overflow:hidden; background:var(--dark); color:#fff; padding-block:clamp(52px,7vw,84px); }
+.cta-band::before{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(700px 400px at 100% 0%, oklch(0.63 0.185 46 / .55), transparent 60%),
+    radial-gradient(700px 460px at 0% 100%, oklch(0.42 0.13 250 / .6), transparent 60%);
+}
+.cta-inner{ position:relative; display:flex; align-items:center; justify-content:space-between; gap:clamp(28px,4vw,56px); flex-wrap:wrap; }
+.cta-copy{ max-width:620px; }
+.cta-copy h2{ color:#fff; }
+.cta-copy p{ color:oklch(0.86 0.01 255); margin:.7rem 0 0; font-size:1.12rem; }
+.cta-actions{ display:flex; gap:.85rem; flex-wrap:wrap; }
+@media (max-width:560px){ .cta-actions{ width:100%; } .cta-actions .btn{ flex:1; } }
+
 /* ---------- footer ---------- */
 .footer{ background:var(--dark); color:oklch(0.82 0.012 255); padding-block:clamp(56px,7vw,84px) 28px; }
 .footer a{ color:oklch(0.82 0.012 255); transition:color .15s; }
