@@ -38,7 +38,7 @@
 .svc-sec .wrap{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(36px,5vw,72px); align-items:center; }
 .svc-sec.reverse .svc-sec-media{ order:2; }
 .svc-sec-media{ position:relative; }
-.svc-sec-photo{ aspect-ratio:4/3; min-height:300px; border-radius:var(--radius-lg); box-shadow:var(--shadow); }
+.svc-sec-photo{ aspect-ratio:4/5; min-height:440px; border-radius:var(--radius-lg); box-shadow:var(--shadow); }
 .svc-sec-num{
   position:absolute; top:-18px; left:-14px; font-family:var(--font-head); font-weight:900;
   font-size:clamp(3rem,5vw,4.4rem); line-height:.8; color:#fff;
