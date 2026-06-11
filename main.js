@@ -91,3 +91,28 @@
     });
   });
 })();
+
+
+/* Kanata HVAC — live Google reviews feed */
+(function(){
+  var grid = document.getElementById('reviewsGrid');
+  if(!grid) return;
+  function esc(s){ return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  fetch('/api/reviews').then(function(r){ return r.json(); }).then(function(d){
+    if(!d || !d.reviews || !d.reviews.length) return;
+    grid.innerHTML = d.reviews.slice(0,6).map(function(rv){
+      var n = Math.max(1, Math.min(5, Math.round(rv.rating || 5)));
+      var stars = '\u2605\u2605\u2605\u2605\u2605'.slice(0, n);
+      var text = esc(rv.text);
+      if(text.length > 320){ text = text.slice(0,300).replace(/\s+\S*$/,'') + '\u2026'; }
+      return '<figure class="review-card reveal in">'
+        + '<div class="stars" aria-label="'+n+' out of 5 stars">'+stars+'</div>'
+        + '<blockquote>'+text+'</blockquote>'
+        + '<figcaption><span class="rv-avatar" aria-hidden="true">'+esc(rv.initial||'G')+'</span>'
+        + '<div><strong>'+esc(rv.author)+'</strong><span>'+esc(rv.when)+'</span></div></figcaption>'
+        + '</figure>';
+    }).join('');
+    var sum = document.getElementById('reviewsSummary');
+    if(sum && d.rating){ sum.textContent = d.rating.toFixed(1) + ' \u2605 average \u00b7 ' + (d.total||0) + ' Google reviews'; }
+  }).catch(function(){});
+})();
