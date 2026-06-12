@@ -116,3 +116,29 @@
     if(sum && d.rating){ sum.textContent = d.rating.toFixed(1) + ' \u2605 average \u00b7 ' + (d.total||0) + ' Google reviews'; }
   }).catch(function(){});
 })();
+
+
+/* Reviews: turn the rendered grid into an auto-scrolling ticker (seamless loop, pauses on hover) */
+(function(){
+  function build(){
+    var grid=document.getElementById('reviewsGrid');
+    if(!grid) return false;
+    var cards=grid.querySelectorAll('.review-card');
+    if(!cards.length) return false;
+    if(grid.dataset.ticker) return true;
+    grid.dataset.ticker='1';
+    var ticker=document.createElement('div'); ticker.className='reviews-ticker';
+    grid.parentNode.insertBefore(ticker,grid);
+    grid.classList.remove('reviews-grid'); grid.classList.add('reviews-track');
+    ticker.appendChild(grid);
+    var frag=document.createDocumentFragment();
+    cards.forEach(function(c){ var cl=c.cloneNode(true); cl.setAttribute('aria-hidden','true'); frag.appendChild(cl); });
+    grid.appendChild(frag);
+    requestAnimationFrame(function(){
+      var half=grid.scrollWidth/2; var dur=Math.max(18, half/70);
+      grid.style.animationDuration=dur.toFixed(1)+'s';
+    });
+    return true;
+  }
+  if(!build()){ var n=0, iv=setInterval(function(){ if(build()||++n>80) clearInterval(iv); },200); }
+})();
