@@ -213,3 +213,13 @@
 
 /* Reviews: keep Google-review avatar initials centered (figcaption span rule was overriding the flex centering) */
 .review-card figcaption .rv-avatar { display: flex; font-size: 1.1rem; color: var(--blue); }
+
+/* Reviews ticker (auto-scrolling marquee, pauses on hover) */
+.reviews-ticker{ position:relative; overflow:hidden; margin-top:clamp(36px,4vw,52px); padding:10px 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
+.reviews-track{ display:flex; width:max-content; animation:reviews-scroll 40s linear infinite; }
+.reviews-ticker:hover .reviews-track{ animation-play-state:paused; }
+.reviews-track .review-card{ flex:0 0 clamp(280px,78vw,360px); margin-right:clamp(16px,2vw,24px); }
+@keyframes reviews-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+@media (prefers-reduced-motion:reduce){ .reviews-track{ animation:none; } .reviews-ticker{ overflow-x:auto; } }
