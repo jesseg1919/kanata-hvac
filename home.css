@@ -223,3 +223,14 @@
 .reviews-track .review-card{ flex:0 0 clamp(280px,78vw,360px); margin-right:clamp(16px,2vw,24px); }
 @keyframes reviews-scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 @media (prefers-reduced-motion:reduce){ .reviews-track{ animation:none; } .reviews-ticker{ overflow-x:auto; } }
+
+
+/* ---- Accreditations strip ---- */
+.accreditations{background:#ffffff;border-top:1px solid rgba(12,26,43,.08);padding:46px 0;}
+.accr-inner{text-align:center;}
+.accr-kicker{margin:0 0 6px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#0c1a2b;}
+.accr-sub{margin:0 auto 26px;max-width:560px;color:#54626f;font-size:1rem;line-height:1.5;}
+.accr-logos{display:flex;align-items:center;justify-content:center;gap:56px;flex-wrap:wrap;}
+.accr-logos img{height:54px;width:auto;opacity:.9;transition:opacity .2s ease;}
+.accr-logos img:hover{opacity:1;}
+@media (max-width:600px){.accreditations{padding:36px 0;}.accr-logos{gap:30px;}.accr-logos img{height:40px;}}
