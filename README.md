@@ -31,3 +31,6 @@ and set the output directory to the folder root.
   `<form>` at a handler (e.g. Vercel serverless function, Formspree, or
   Vercel Forms) — happy to set that up.
 - Fonts load from Google Fonts over the network.
+
+
+<!-- Redeploy trigger: ship api/reviews.js serverless function (2026-06-12) -->
