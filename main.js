@@ -142,3 +142,28 @@
   }
   if(!build()){ var n=0, iv=setInterval(function(){ if(build()||++n>80) clearInterval(iv); },200); }
 })();
+
+
+/* Deliver form submissions to the business inbox via FormSubmit (no backend needed). */
+(function(){
+  var ENDPOINT='https://formsubmit.co/ajax/kanatahvacinc@gmail.com';
+  function send(form){
+    try{
+      if(form.checkValidity && !form.checkValidity()) return;
+      var fd=new FormData(form), data={};
+      fd.forEach(function(v,k){ if(k && k.charAt(0)!=='_') data[k]=v; });
+      data._subject='New quote request \u2014 Kanata HVAC website';
+      data._template='table';
+      data._captcha='false';
+      data._honey='';
+      fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).catch(function(){});
+    }catch(e){}
+  }
+  function wire(form){
+    if(!form || form.dataset.emailWired) return;
+    form.dataset.emailWired='1';
+    form.addEventListener('submit', function(){ send(form); });
+  }
+  function init(){ Array.prototype.forEach.call(document.querySelectorAll('form'), wire); }
+  if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
+})();
