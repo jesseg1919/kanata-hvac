@@ -4,6 +4,7 @@
 module.exports = async function handler(req, res) {
   // Cache at the edge so we hit Google's API at most a few times an hour (keeps cost ~free).
   res.setHeader('Cache-Control', 's-maxage=21600, stale-while-revalidate=86400');
+  res.setHeader('Access-Control-Allow-Origin', '*');
 
   const key = process.env.GOOGLE_PLACES_API_KEY;
   if (!key) {
