@@ -210,3 +210,6 @@
   .cta-actions{ width:100%; }
   .cta-actions .btn{ flex:1; }
 }
+
+/* Reviews: keep Google-review avatar initials centered (figcaption span rule was overriding the flex centering) */
+.review-card figcaption .rv-avatar { display: flex; font-size: 1.1rem; color: var(--blue); }
