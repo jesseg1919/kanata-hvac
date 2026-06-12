@@ -98,7 +98,7 @@
   var grid = document.getElementById('reviewsGrid');
   if(!grid) return;
   function esc(s){ return (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-  fetch('/api/reviews').then(function(r){ return r.json(); }).then(function(d){
+  fetch('https://kanata-hvac.vercel.app/api/reviews').then(function(r){ return r.json(); }).then(function(d){
     if(!d || !d.reviews || !d.reviews.length) return;
     grid.innerHTML = d.reviews.slice(0,6).map(function(rv){
       var n = Math.max(1, Math.min(5, Math.round(rv.rating || 5)));
